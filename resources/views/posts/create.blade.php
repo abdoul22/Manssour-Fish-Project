@@ -1,12 +1,25 @@
-<x-app-layout>
-    <x-slot name="header">
+@extends('layouts.app')
+
+@section('content')
+
+<div class="container mt-5">
+    <div name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Crèer un Post') }}
+            Creer un poste
         </h2>
-    </x-slot>
+    </div>
 
     <div class="bg-dark text-white py-12 container mt-8">
-        <form action="{{ route('post.store') }}" method="POST" class=" p-5">
+        @if (count($errors) > 0)
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li class="nav-item">
+                        <a class="nav-link "><span class="text-white">{{ $error }}</span></a>
+                    </li>
+                @endforeach
+            </ul>
+        @endif
+        <form action="{{ route('post.store') }}" method="POST" class=" p-5" enctype="multipart/form-data">
             @csrf
             @method('POST')
             <div class="mb-3 form-group">
@@ -26,4 +39,6 @@
             <button type="submit" class="btn btn-success">Envoyer</button>
         </form>
     </div>
-</x-app-layout>
+</div>
+
+@endsection

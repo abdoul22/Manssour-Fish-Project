@@ -16,6 +16,10 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('espece');
+            $table->string('taille');
+            $table->string('quantite');
+            $table->string('prixu');
             $table->timestamps();
         });
     }

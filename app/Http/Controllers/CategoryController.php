@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Home;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+         $categories = Category::latest()->paginate();
+        return view('categories.index' , compact('categories'));
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function create()
     {
-        //
+      return view('categories.create');
     }
 
     /**
@@ -36,16 +36,33 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'titre' =>  'required',
+            'espece' =>  'required',
+            'taille' =>  'required',
+            'quantite' =>  'required',
+            'prixu' =>  'required'
+        ]);
+
+        // dd($request->all());
+        $category = new Category;
+        $category->title = $request->titre;
+        $category->espece = $request->espece;
+        $category->taille = $request->taille;
+        $category->quantite = $request->quantite;
+        $category->prixu = $request->prixu;
+        $category->save();
+
+        return redirect()->route('categories.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Home  $home
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Home $home)
+    public function show($id)
     {
         //
     }
@@ -53,10 +70,10 @@ class HomeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Home  $home
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Home $home)
+    public function edit($id)
     {
         //
     }
@@ -65,10 +82,10 @@ class HomeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Home  $home
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Home $home)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,10 +93,10 @@ class HomeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Home  $home
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Home $home)
+    public function destroy($id)
     {
         //
     }

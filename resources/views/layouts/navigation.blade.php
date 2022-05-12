@@ -18,9 +18,13 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                      <x-nav-link :href="route('post.create')" :active="request()->routeIs('post.create')">
+                    <x-nav-link :href="route('post.create')" :active="request()->routeIs('post.create')">
                         {{ __('Creer un poste') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('categories.create')" :active="request()->routeIs('categories.create')">
+                        {{ __('Creer une category') }}
+                    </x-nav-link>
+
                 </div>
             </div>
 

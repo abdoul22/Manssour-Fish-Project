@@ -13,7 +13,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+
+        return view('posts.index');
     }
 
     /**
@@ -34,10 +35,13 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => $request->name,
-            'content' => $request->content
+
+        $this->validate($request, [
+            'title' => 'required',
+            'content' => 'required',
+            'featured' => 'required|image',
         ]);
+        dd($request->all());
     }
 
     /**
