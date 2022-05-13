@@ -4,8 +4,10 @@
     <div class=" mt-5">
         <div name="header">
             <h2 class="container font-semibold text-xl text-gray-800 leading-tight">
-                Creer une Categorie
-            </h2>
+            @foreach ($categories as $category )
+            {{$category->id}}
+            @endforeach
+        </h2>
         </div>
         <div>
             <div class="py-12">
@@ -17,7 +19,7 @@
                                 <div class="container mt-5">
                                     <div name="header">
                                         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                                            Creer une Categorie
+                                            Modifier la Categorie
                                         </h2>
                                     </div>
 
@@ -32,36 +34,36 @@
                                                 @endforeach
                                             </ul>
                                         @endif
-                                        <form action="{{ route('categories.store') }}" method="POST"
+                                        <form action="{{ route('categories.update', ['id' => $category->id ]) }}" method="POST"
                                             class=" p-5">
                                             @csrf
                                             <div class="mb-3 form-group">
                                                 <label class="form-label">Titre</label>
-                                                <input type="text" name="title" class="form-control">
+                                                <input type="text" name="title" value="{{$category->title}}" class="form-control">
                                                 <div id="emailHelp" class="form-text text-gray ">Veiller ajouter un titre.
                                                 </div>
                                             </div>
                                             <div class="mb-3 form-group">
                                                 <label class="form-label">espéces</label>
-                                                <input class="form-control" name="espece">
+                                                <input class="form-control" value="{{$category->espece}}" name="espece">
                                             </div>
                                             <div class="mb-3 form-group">
                                                 <label class="form-label">
                                                     Taille</label>
-                                                <input class="form-control" name="taille">
+                                                <input class="form-control" value="{{$category->taille}}" name="taille">
                                             </div>
                                             <div class="mb-3 form-group">
                                                 <label class="form-label">
                                                     Quantité en Kg</label>
-                                                <input class="form-control" name="quantite">
+                                                <input class="form-control"  value="{{$category->quantite}}" name="quantite">
                                             </div>
                                             <div class="mb-3 form-group">
                                                 <label class="form-label">
                                                     Prix Unitaire</label>
-                                                <input class="form-control" name="prixu">
+                                                <input class="form-control" value="{{$category->prixu}}" name="prixu">
                                             </div>
 
-                                            <button type="submit" class="btn btn-success">Envoyer</button>
+                                            <button type="submit" class="btn btn-success">Modifier</button>
                                         </form>
                                     </div>
                                 </div>

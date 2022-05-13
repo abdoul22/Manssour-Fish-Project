@@ -28,8 +28,10 @@ Route::middleware(['auth'])->group(function () {
 
     // Categories Routes
     Route::get('/categories/index', [CategoryController::class , 'index'])->name('categories.index');
+    Route::get('/categories/edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
+    Route::post('/categories/update/{id}', [CategoryController::class, 'update'])->name('categories.update');
+    Route::get('/categories/delete/{id}', [CategoryController::class, 'destroy'])->name('categories.delete');
     Route::get('/categories/create', [CategoryController::class , 'create'])->name('categories.create');
-    Route::put('/categories/edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
     Route::post('/categories/store', [CategoryController::class, 'store'])->name('categories.store');
 });
 

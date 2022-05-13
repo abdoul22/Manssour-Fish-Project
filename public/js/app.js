@@ -22327,6 +22327,16 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
+/***/ "./resources/css/style.scss":
+/*!**********************************!*\
+  !*** ./resources/css/style.scss ***!
+  \**********************************/
+/***/ (() => {
+
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Can't find stylesheet to import.\n  ╷\n8 │ @import \"@fontawesome/scss/fontawesome.scss\";\n  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  ╵\n  resources\\css\\style.scss 8:9  root stylesheet\n    at processResult (C:\\Users\\Abdou\\Desktop\\web\\Mohamed-issa\\Laravel\\manssour-peche\\node_modules\\webpack\\lib\\NormalModule.js:758:19)\n    at C:\\Users\\Abdou\\Desktop\\web\\Mohamed-issa\\Laravel\\manssour-peche\\node_modules\\webpack\\lib\\NormalModule.js:860:5\n    at C:\\Users\\Abdou\\Desktop\\web\\Mohamed-issa\\Laravel\\manssour-peche\\node_modules\\loader-runner\\lib\\LoaderRunner.js:400:11\n    at C:\\Users\\Abdou\\Desktop\\web\\Mohamed-issa\\Laravel\\manssour-peche\\node_modules\\loader-runner\\lib\\LoaderRunner.js:252:18\n    at context.callback (C:\\Users\\Abdou\\Desktop\\web\\Mohamed-issa\\Laravel\\manssour-peche\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at Object.loader (C:\\Users\\Abdou\\Desktop\\web\\Mohamed-issa\\Laravel\\manssour-peche\\node_modules\\sass-loader\\dist\\index.js:69:5)");
+
+/***/ }),
+
 /***/ "./resources/css/app.css":
 /*!*******************************!*\
   !*** ./resources/css/app.css ***!
@@ -22708,6 +22718,7 @@ process.umask = function() { return 0; };
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
 /******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/css/style.scss")))
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/css/app.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	

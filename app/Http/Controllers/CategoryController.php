@@ -14,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-         $categories = Category::latest()->paginate();
+         $categories = Category::latest()->paginate(10);
         return view('categories.index' , compact('categories'));
     }
 
@@ -37,7 +37,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'titre' =>  'required',
+            'title' =>  'required',
             'espece' =>  'required',
             'taille' =>  'required',
             'quantite' =>  'required',
@@ -46,7 +46,7 @@ class CategoryController extends Controller
 
         // dd($request->all());
         $category = new Category;
-        $category->title = $request->titre;
+        $category->title = $request->title;
         $category->espece = $request->espece;
         $category->taille = $request->taille;
         $category->quantite = $request->quantite;
@@ -75,7 +75,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories = Category::find($id)->get();
+        return view('categories.edit', compact('categories'));
     }
 
     /**
@@ -87,7 +88,14 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id);
+        $category->title = $request->title;
+        $category->espece = $request->espece;
+        $category->taille = $request->taille;
+        $category->quantite = $request->quantite;
+        $category->prixu = $request->prixu;
+        $category->save();
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -98,6 +106,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+        return redirect()->route('categories.index');
     }
 }
