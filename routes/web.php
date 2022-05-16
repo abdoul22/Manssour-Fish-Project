@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\VenteController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ApprovisionnemtController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
 Route::middleware(['auth'])->group(function () {
+
+    //Approu
+    Route::get('/approvisionnement/index', [ApprovisionnemtController::class, 'index'])->name('approvisionnement.index');
+
+    //Ventes
+    Route::get('ventes/index',[VenteController::class, 'index'])->name('ventes.index');
 
     // Posts routes
     Route::get('/posts/create', [PostsController::class, 'create'])->name('post.create');

@@ -36,7 +36,7 @@
                                             class=" p-5">
                                             @csrf
                                             <div class="mb-3 form-group">
-                                                <label class="form-label">Titre</label>
+                                                <label class="form-label">Client</label>
                                                 <input type="text" name="title" class="form-control">
                                                 <div id="emailHelp" class="form-text text-gray ">Veiller ajouter un titre.
                                                 </div>

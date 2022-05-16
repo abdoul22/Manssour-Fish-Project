@@ -13,7 +13,7 @@
                     <th>taille</th>
                     <th>quantite</th>
                     <th>prix Unitaire</th>
-                    <th>Action</th>
+                    <th colspan="4">Action</th>
                 </thead>
                 <tbody>
                     @foreach ($categories as $category)
@@ -23,20 +23,21 @@
                             <td>{{ $category->taille }}</td>
                             <td>{{ $category->quantite }}</td>
                             <td>{{ $category->prixu }}</td>
-                            <td><a class="mr-4 " style=" color: white; display: inline-block;"
+                            <td>
+                                <td><a class="mr-4 " style=" color: white; display: inline-block;"
                                     href="{{ route('categories.edit', ['id' => $category->id]) }}"><i
-                                        class="bi bi-pencil-square"></i></a>
-                                <a class="mr-4" style=" color: white; display: inline-block;"
+                                        class="bi bi-pencil-square"></i></a></td>
+                               <td> <a class="mr-4" style=" color: white; display: inline-block;"
                                     href="{{ route('categories.delete', ['id' => $category->id]) }}"><i
-                                        class="bi bi-trash3"></i></a>
-                                <a class="mr-4 " style="display: inline-block; color: white;"
+                                        class="bi bi-trash3"></i></a></td>
+                               <td> <a class="mr-4 " style="display: inline-block; color: white;"
                                     href="{{ route('categories.edit', ['id' => $category->id]) }}"><i
-                                        class="bi bi-eye"></i></a>
+                                        class="bi bi-eye"></i></a></td>
                             </td>
                         </tr>
                     @endforeach
                     <tr>
-                        <th scope="row" colspan="4">Prix Totol</th>
+                        <th scope="row" colspan="7">Prix Totol</th>
                         <td colspan="1">200000</td>
                         <th>MRU</th>
                     </tr>

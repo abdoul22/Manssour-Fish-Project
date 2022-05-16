@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use App\Models\Post;
+use App\Models\Vente;
 use Illuminate\Http\Request;
 
-class PostsController extends Controller
+class VenteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-        return view('posts.index', compact("posts"));
+        return view('ventes.index');
     }
 
     /**
@@ -26,8 +24,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        $category = Category::all();
-        return view('posts.create', compact("category"));
+        //
     }
 
     /**
@@ -38,23 +35,16 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-
-        $this->validate($request, [
-            'title' => 'required',
-            'content' => 'required',
-            'category_id' => 'required',
-            'featured' => 'required|image',
-        ]);
-
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Vente  $vente
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Vente $vente)
     {
         //
     }
@@ -62,10 +52,10 @@ class PostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Vente  $vente
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Vente $vente)
     {
         //
     }
@@ -74,10 +64,10 @@ class PostsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Vente  $vente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Vente $vente)
     {
         //
     }
@@ -85,10 +75,10 @@ class PostsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Vente  $vente
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Vente $vente)
     {
         //
     }

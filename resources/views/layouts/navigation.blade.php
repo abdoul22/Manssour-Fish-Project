@@ -24,6 +24,12 @@
                     <x-nav-link :href="route('categories.create')" :active="request()->routeIs('categories.create')">
                         {{ __('Creer une category') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('approvisionnement.index')" :active="request()->routeIs('approvisionnement.index')">
+                        {{ __('Approvisionnement') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('ventes.index')" :active="request()->routeIs('ventes.index')">
+                        {{ __('Ventes') }}
+                    </x-nav-link>
 
                 </div>
             </div>
@@ -35,10 +41,9 @@
                         <button
                             class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
                             <div>
-
-                                {{ Auth::user()->name }}
+                                {{-- {{ Auth::user()->name }} --}}
+                                <small>Menu</small>
                             </div>
-
                             <div class="ml-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 20 20">
@@ -52,21 +57,21 @@
 
                     <x-slot name="content">
                         <!-- Authentication -->
-                         <x-dropdown-link :href="route('categories.index')">
-                                {{ __('Categories') }}
-                            </x-dropdown-link>
-                             <x-dropdown-link :href="route('categories.index')">
-                                {{ __('Embarquement') }}
-                            </x-dropdown-link>
-                             <x-dropdown-link :href="route('categories.index')">
-                                {{ __('Stock') }}
-                            </x-dropdown-link>
-                             <x-dropdown-link :href="route('categories.index')">
-                                {{ __('Produits Frais') }}
-                            </x-dropdown-link>
-                             <x-dropdown-link :href="route('categories.index')">
-                                {{ __('Produits congelés') }}
-                            </x-dropdown-link>
+                        <x-dropdown-link :href="route('categories.index')">
+                            {{ __('Categories') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('categories.index')">
+                            {{ __('Embarquement') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('categories.index')">
+                            {{ __('Stock') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('categories.index')">
+                            {{ __('Produits Frais') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('categories.index')">
+                            {{ __('Produits congelés') }}
+                        </x-dropdown-link>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
